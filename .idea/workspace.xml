@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48a51b57-be27-4ac5-afca-bc83d1952308" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/hot_deal/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/hot_deal/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="48a51b57-be27-4ac5-afca-bc83d1952308" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
