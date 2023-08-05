@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'hot_deal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hot_deal_local',
+        'NAME': 'hot_deal',
         'USER': 'root',
         'PASSWORD': '0000',
         'HOST': 'localhost',
