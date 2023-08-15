@@ -7,6 +7,7 @@ def ruliweb():
     if url.status_code == 200:
         html = url.text
         soup = BeautifulSoup(html, 'html.parser')
-        board = soup.find_all('a', class_='deco')
+        # board = soup.find_all('a', class_='deco')
+        board = soup.select('div > a.deco')
         for title in board[8:36]:
             print(title.text.strip())
