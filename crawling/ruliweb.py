@@ -7,7 +7,7 @@ def ruliweb():
     if url.status_code == 200:
         html = url.text
         soup = BeautifulSoup(html, 'html.parser')
-        # board = soup.find_all('a', class_='deco')
-        board = soup.select('div > a.deco')
-        for title in board[8:36]:
+        board = soup.select('tbody > tr.table_body.blocktarget > td > div > a.deco')
+        for title in board:
             print(title.text.strip())
+            print('------------------------------')
