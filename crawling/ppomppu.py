@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
+import schedule
+import time
+
 
 
 def ppomppu():
@@ -18,3 +21,11 @@ def ppomppu():
                 else:
                     print("없음")
                 print('------------------------------')
+
+
+
+schedule.every(10).seconds.do(ppomppu())
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
