@@ -4,7 +4,6 @@ import schedule
 import time
 
 
-
 def ppomppu():
     url = requests.get('https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu')
     if url.status_code == 200:
@@ -23,9 +22,10 @@ def ppomppu():
                 print('------------------------------')
 
 
-
 schedule.every(10).seconds.do(ppomppu())
 
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+ppomppu()
