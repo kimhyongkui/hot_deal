@@ -12,6 +12,7 @@ def ruliweb():
             print(title.text.strip())
             print('------------------------------')
 
+
 def ruliweb_list():
     url = requests.get('https://bbs.ruliweb.com/market/board/1020')
     if url.status_code == 200:
