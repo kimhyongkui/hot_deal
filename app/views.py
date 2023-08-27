@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from api.post_list import post_list
+from app.utils.post_list import post_list
 from .models import ListData
-from crawling.ppomppu import ppomppu_list
+from app.crawling.ppomppu import ppomppu_list
 
 
 def post_list_view(request):
