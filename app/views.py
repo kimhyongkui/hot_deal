@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from app.utils.post_list import post_list
-from .models import ListData
+from app.models import ListData
 from app.crawling.ppomppu import ppomppu_list
 
 
