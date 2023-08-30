@@ -1,4 +1,4 @@
-from .base import *
+from hot_deal.settings.base import *
 
 ALLOWED_HOSTS = []
 
