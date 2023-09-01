@@ -1,10 +1,11 @@
 import os
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hot_deal.settings")
 
 import django
+
 django.setup()
 
-from hot_deal import settings
 from app.crawling.ppomppu import ppomppu_list
 from app.models import ListData
 from sqlalchemy.orm import sessionmaker
