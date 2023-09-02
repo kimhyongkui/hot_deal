@@ -26,6 +26,3 @@ def post_data():
         session.add(result)
     session.commit()
     session.close()
-
-
-print(post_data())
