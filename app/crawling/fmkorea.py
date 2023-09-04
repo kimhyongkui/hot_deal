@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
+import schedule
+import time
 
 
 def fmkorea():
@@ -38,3 +40,9 @@ def fmkorea_list():
             result_list.append(result_dict)
 
         return result_list
+
+schedule.every(30).minutes.do(crawl_data)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
