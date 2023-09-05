@@ -41,7 +41,9 @@ def fmkorea_list():
 
         return result_list
 
-schedule.every(30).minutes.do(crawl_data)
+
+
+schedule.every(1).hourss.do(fmkorea_list)
 
 while True:
     schedule.run_pending()
