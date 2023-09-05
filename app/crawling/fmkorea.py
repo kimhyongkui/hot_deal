@@ -43,7 +43,7 @@ def fmkorea_list():
 
 
 
-schedule.every(1).hourss.do(fmkorea_list)
+schedule.every(1).hours.do(fmkorea_list)
 
 while True:
     schedule.run_pending()
