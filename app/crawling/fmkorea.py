@@ -42,7 +42,6 @@ def fmkorea_list():
         return result_list
 
 
-
 schedule.every(1).hours.do(fmkorea_list)
 
 while True:
