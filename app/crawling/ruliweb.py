@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
+import schedule
+import time
 
 
 def ruliweb():
@@ -28,3 +30,10 @@ def ruliweb_list():
             result_list.append(result_dict)
 
         return result_list
+
+
+schedule.every(1).hours.do(ruliweb_list())
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
