@@ -1,14 +1,14 @@
-from hot_deal.settings.base import *
-
-ALLOWED_HOSTS = []
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hot_deal',
-        'USER': 'root',
-        'PASSWORD': '0000',
-        'HOST': 'localhost',
-        'PORT': '3306'
-    }
-}
+# from hot_deal.settings.base import *
+#
+# ALLOWED_HOSTS = []
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hot_deal',
+#         'USER': 'root',
+#         'PASSWORD': '0000',
+#         'HOST': 'localhost',
+#         'PORT': '3306'
+#     }
+# }
