@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Ruliweb(models.Model):
+class Fmkorea(models.Model):
     name = models.CharField(max_length=255)
     category = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10)
@@ -9,5 +9,20 @@ class Ruliweb(models.Model):
     class Meta:
         app_label = "hot_deal"
 
-    def __str__(self):
-        return self.name
+
+class Ppomppu(models.Model):
+    name = models.CharField(max_length=255)
+    category = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10)
+
+    class Meta:
+        app_label = "hot_deal"
+
+
+class Ruliweb(models.Model):
+    name = models.CharField(max_length=255)
+    category = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10)
+
+    class Meta:
+        app_label = "hot_deal"
