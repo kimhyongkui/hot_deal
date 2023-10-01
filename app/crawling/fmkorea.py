@@ -42,7 +42,7 @@ def fmkorea_list():
         return result_list
 
 
-schedule.every(1).hours.do(fmkorea_list)
+schedule.every(6).hours.do(lambda: fmkorea_list)
 
 while True:
     schedule.run_pending()

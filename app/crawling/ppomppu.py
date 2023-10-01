@@ -50,7 +50,7 @@ def ppomppu_list():
         return result_list
 
 
-schedule.every(1).hours.do(ppomppu_list())
+schedule.every(6).hours.do(lambda: ppomppu_list())
 
 while True:
     schedule.run_pending()

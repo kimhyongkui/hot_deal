@@ -32,7 +32,7 @@ def ruliweb_list():
         return result_list
 
 
-schedule.every(1).hours.do(ruliweb_list())
+schedule.every(6).hours.do(lambda: ruliweb_list())
 
 while True:
     schedule.run_pending()
