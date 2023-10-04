@@ -1,4 +1,4 @@
-from app.models import Fmkorea, Ppomppu, Ruliweb  # 필요한 모델 클래스를 가져옵니다.
+from app.models import Fmkorea, Ppomppu, Ruliweb
 from app.crawling.fmkorea import fmkorea_list
 from app.crawling.ppomppu import ppomppu_list
 from app.crawling.ruliweb import ruliweb_list
