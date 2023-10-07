@@ -32,3 +32,5 @@ def save_data_ruliweb():
             price=data['price']
         )
         ruliweb_obj.save()
+
+save_data_ruliweb()
