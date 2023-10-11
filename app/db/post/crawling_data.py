@@ -2,7 +2,6 @@ from app.models import Fmkorea, Ppomppu, Ruliweb
 from app.crawling.fmkorea import fmkorea_list
 from app.crawling.ppomppu import ppomppu_list
 from app.crawling.ruliweb import ruliweb_list
-from app.models import 
 import os
 import django
 
@@ -38,5 +37,3 @@ def save_data_ruliweb():
             price=data['price']
         )
         ruliweb_obj.save()
-
-save_data_ruliweb()
