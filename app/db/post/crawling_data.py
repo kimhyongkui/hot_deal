@@ -1,7 +1,14 @@
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hot_deal.settings')
+django.setup()
+
 from app.models import Fmkorea, Ppomppu, Ruliweb
 from app.crawling.fmkorea import fmkorea_list
 from app.crawling.ppomppu import ppomppu_list
 from app.crawling.ruliweb import ruliweb_list
+
 
 
 def save_data_fmkorea():
