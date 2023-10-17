@@ -10,9 +10,9 @@ from app.crawling.ppomppu import ppomppu_list
 from app.crawling.ruliweb import ruliweb_list
 
 
-
 def save_data_fmkorea():
-    for data in fmkorea_list:
+    data_list = fmkorea_list()
+    for data in data_list:
         fmkorea_obj = Fmkorea(
             name=data['name'],
             shop=data['shop'],
@@ -23,7 +23,8 @@ def save_data_fmkorea():
 
 
 def save_data_ppomppu():
-    for data in ppomppu_list:
+    data_list = ppomppu_list()
+    for data in data_list:
         ppomppu_obj = Ppomppu(
             name=data['name'],
             category=data['category']
@@ -32,7 +33,8 @@ def save_data_ppomppu():
 
 
 def save_data_ruliweb():
-    for data in ruliweb_list:
+    data_list = ruliweb_list()
+    for data in data_list:
         ruliweb_obj = Ruliweb(
             name=data['name']
         )
