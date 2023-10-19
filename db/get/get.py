@@ -1,4 +1,4 @@
-from app.models import Fmkorea
+from db.models import Fmkorea
 
 
 def get_fmkorea_data():
