@@ -1,6 +1,6 @@
-from crawling.fmkorea import fmkorea_list
-from crawling.ppomppu import ppomppu_list
-from crawling.ruliweb import ruliweb_list
+from app.crawling.fmkorea import fmkorea_list
+from app.crawling.ppomppu import ppomppu_list
+from app.crawling.ruliweb import ruliweb_list
 import schedule
 import time
 
