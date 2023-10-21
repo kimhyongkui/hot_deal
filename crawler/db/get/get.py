@@ -1,4 +1,4 @@
-from myapps.models import Fmkorea, Ppomppu, Ruliweb
+from crawler.models import Fmkorea, Ppomppu, Ruliweb
 
 
 def get_fmkorea_data():

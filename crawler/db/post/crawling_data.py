@@ -6,10 +6,10 @@ import django
 
 django.setup()
 
-from myapps.models import Fmkorea, Ppomppu, Ruliweb
-from myapps.crawling.fmkorea import fmkorea_list
-from myapps.crawling.ppomppu import ppomppu_list
-from myapps.crawling.ruliweb import ruliweb_list
+from crawler.models import Fmkorea, Ppomppu, Ruliweb
+from crawler.crawling.fmkorea import fmkorea_list
+from crawler.crawling.ppomppu import ppomppu_list
+from crawler.crawling.ruliweb import ruliweb_list
 
 
 def save_data_fmkorea():
@@ -41,3 +41,5 @@ def save_data_ruliweb():
             name=data['name']
         )
         ruliweb_obj.save()
+
+save_data_ruliweb()
