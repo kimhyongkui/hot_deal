@@ -41,5 +41,3 @@ def save_data_ruliweb():
             name=data['name']
         )
         ruliweb_obj.save()
-
-save_data_ruliweb()

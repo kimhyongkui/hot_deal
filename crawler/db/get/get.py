@@ -12,3 +12,4 @@ def get_ppomppu_data():
 def get_ruliweb_data():
     result = Ruliweb.objects.all()
     return result
+
