@@ -11,7 +11,8 @@ def ppomppu():
         titles = soup.select('tr td:nth-child(2) > div')
         for title in titles[3:42]:
             name = title.select_one('a > font.list_title')
-            price = re.search(r'\(([^)]+)\)', name.get_text()).group(1)
+            # price = re.search(r'\(([^)]+)\)', name.get_text()).group(1)
+            price = re.findall(r'\(([^)]+)\)', name)
             category = title.select_one('span[style="color:#999;font-size:11px;"]')
             if name is not None:
                 print(name.get_text().strip())
@@ -49,5 +50,6 @@ def ppomppu_list():
                 result_list.append(result_dict)
 
         return result_list
+
 
 print(ppomppu())
