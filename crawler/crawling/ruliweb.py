@@ -7,8 +7,8 @@ def ruliweb():
     if url.status_code == 200:
         html = url.text
         soup = BeautifulSoup(html, 'html.parser')
-        board = soup.select('tbody > tr.table_body.blocktarget > td > div > a.deco')
-        for title in board:
+        titles = soup.select('tbody > tr.table_body.blocktarget > td > div > a.deco')
+        for title in titles:
             print(title.text.strip())
             print('------------------------------')
 
@@ -18,9 +18,9 @@ def ruliweb_list():
     if url.status_code == 200:
         html = url.text
         soup = BeautifulSoup(html, 'html.parser')
-        board = soup.select('tbody > tr.table_body.blocktarget > td > div > a.deco')
+        titles = soup.select('tbody > tr.table_body.blocktarget > td > div > a.deco')
         result_list = []
-        for title in board:
+        for title in titles:
             result_dict = \
                 {
                     'name': title.text.strip()
