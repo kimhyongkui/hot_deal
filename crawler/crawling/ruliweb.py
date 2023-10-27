@@ -7,9 +7,14 @@ def ruliweb():
     if url.status_code == 200:
         html = url.text
         soup = BeautifulSoup(html, 'html.parser')
-        titles = soup.select('tbody > tr.table_body.blocktarget > td > div > a.deco')
-        for title in titles:
-            print(title.text.strip())
+        titles = soup.select('tbody > tr.table_body.blocktarget')
+        for title in titles[4:32]:
+            category = title.select_one('td.divsn.text_over > a[tabindex="-1"]')
+            name = title.select_one('td.subject > div > a.deco')
+            url = title.select_one('td.subject > div > a.deco').get('href')
+            print(category.text.strip())
+            print(name.text.strip())
+            print(url)
             print('------------------------------')
 
 
@@ -18,12 +23,17 @@ def ruliweb_list():
     if url.status_code == 200:
         html = url.text
         soup = BeautifulSoup(html, 'html.parser')
-        titles = soup.select('tbody > tr.table_body.blocktarget > td > div > a.deco')
+        titles = soup.select('tbody > tr.table_body.blocktarget')
         result_list = []
-        for title in titles:
+        for title in titles[4:32]:
+            category = title.select_one('td.divsn.text_over > a[tabindex="-1"]')
+            name = title.select_one('td.subject > div > a.deco')
+            url = title.select_one('td.subject > div > a.deco').get('href')
             result_dict = \
                 {
-                    'name': title.text.strip()
+                    'category': category.text.strip(),
+                    'name': name.text.strip(),
+                    'url': url
                 }
             result_list.append(result_dict)
 
