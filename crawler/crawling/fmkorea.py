@@ -13,10 +13,12 @@ def fmkorea():
             shop = title.select_one('div > div > span:nth-child(1)')
             price = title.select_one('div > div > span:nth-child(2)')
             deliver = title.select_one('div > div > span:nth-child(3)')
+            url = name.get('href')
             print(name.get_text().strip())
             print(shop.get_text().strip())
             print(price.get_text().strip())
             print(deliver.get_text().strip())
+            print(f"https://www.fmkorea.com/{url}")
             print('---------------------------')
 
 
