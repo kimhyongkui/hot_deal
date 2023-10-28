@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import re
 
 
 def ppomppu():
@@ -11,16 +10,12 @@ def ppomppu():
         titles = soup.select('tr td:nth-child(2) > div')
         for title in titles[3:42]:
             name = title.select_one('a > font.list_title')
-            # price = re.search(r'\(([^)]+)\)', name.get_text()).group(1)
-            price = re.findall(r'\(([^)]+)\)', name)
             category = title.select_one('span[style="color:#999;font-size:11px;"]')
+            url = title.select_one('a').get('href')
             if name is not None:
                 print(name.get_text().strip())
-                print(price.strip())
-                if category is not None:
-                    print(category.get_text().strip())
-                else:
-                    print("없음")
+                print(f"https://www.ppomppu.co.kr/zboard/{url}")
+                print(category.get_text().strip())
                 print('------------------------------')
 
 
@@ -34,22 +29,14 @@ def ppomppu_list():
         for title in titles[3:42]:
             name = title.select_one('a > font.list_title')
             category = title.select_one('span[style="color:#999;font-size:11px;"]')
+            url = title.select_one('a').get('href')
             if name is not None:
-                if category is not None:
-                    result_dict = \
-                        {
-                            'name': name.get_text().strip(),
-                            'category': category.get_text().strip()
-                        }
-                else:
-                    result_dict = \
-                        {
-                            'name': name.get_text().strip(),
-                            'category': '없음'
-                        }
+                result_dict = \
+                    {
+                        'name': name.get_text().strip(),
+                        'url': url,
+                        'category': category.get_text().strip()
+                    }
                 result_list.append(result_dict)
 
         return result_list
-
-
-print(ppomppu())
