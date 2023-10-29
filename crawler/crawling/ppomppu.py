@@ -3,9 +3,9 @@ import requests
 
 
 def ppomppu():
-    url = requests.get('https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu')
-    if url.status_code == 200:
-        html = url.text
+    web_url = requests.get('https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu')
+    if web_url.status_code == 200:
+        html = web_url.text
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('tr td:nth-child(2) > div')
         for title in titles[3:42]:
@@ -20,9 +20,9 @@ def ppomppu():
 
 
 def ppomppu_list():
-    url = requests.get('https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu')
-    if url.status_code == 200:
-        html = url.text
+    web_url = requests.get('https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu')
+    if web_url.status_code == 200:
+        html = web_url.text
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('tr td:nth-child(2) > div')
         result_list = []

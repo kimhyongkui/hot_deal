@@ -3,9 +3,9 @@ import requests
 
 
 def fmkorea():
-    url = requests.get('https://www.fmkorea.com/hotdeal')
-    if url.status_code == 200:
-        html = url.text
+    web_url = requests.get('https://www.fmkorea.com/hotdeal')
+    if web_url.status_code == 200:
+        html = web_url.text
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('div > div > div > ul > li.li')
         for title in titles:
@@ -23,9 +23,9 @@ def fmkorea():
 
 
 def fmkorea_list():
-    url = requests.get('https://www.fmkorea.com/hotdeal')
-    if url.status_code == 200:
-        html = url.text
+    web_url = requests.get('https://www.fmkorea.com/hotdeal')
+    if web_url.status_code == 200:
+        html = web_url.text
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('div > div > div > ul > li.li')
         result_list = []

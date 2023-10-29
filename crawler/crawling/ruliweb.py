@@ -3,9 +3,9 @@ import requests
 
 
 def ruliweb():
-    url = requests.get('https://bbs.ruliweb.com/market/board/1020')
-    if url.status_code == 200:
-        html = url.text
+    web_url = requests.get('https://bbs.ruliweb.com/market/board/1020')
+    if web_url.status_code == 200:
+        html = web_url.text
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('tbody > tr.table_body.blocktarget')
         for title in titles[4:32]:
@@ -19,9 +19,9 @@ def ruliweb():
 
 
 def ruliweb_list():
-    url = requests.get('https://bbs.ruliweb.com/market/board/1020')
-    if url.status_code == 200:
-        html = url.text
+    web_url = requests.get('https://bbs.ruliweb.com/market/board/1020')
+    if web_url.status_code == 200:
+        html = web_url.text
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('tbody > tr.table_body.blocktarget')
         result_list = []
