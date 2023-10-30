@@ -19,7 +19,8 @@ def save_data_fmkorea():
             name=data['name'],
             shop=data['shop'],
             price=data['price'],
-            deliver=data['deliver']
+            deliver=data['deliver'],
+            url=data['url']
         )
         fmkorea_obj.save()
 
@@ -28,8 +29,9 @@ def save_data_ppomppu():
     data_list = ppomppu_list()
     for data in data_list:
         ppomppu_obj = Ppomppu(
+            category=data['category'],
             name=data['name'],
-            category=data['category']
+            url=data['url']
         )
         ppomppu_obj.save()
 
@@ -38,6 +40,8 @@ def save_data_ruliweb():
     data_list = ruliweb_list()
     for data in data_list:
         ruliweb_obj = Ruliweb(
-            name=data['name']
+            category=data['category'],
+            name=data['name'],
+            url=data['url']
         )
         ruliweb_obj.save()
