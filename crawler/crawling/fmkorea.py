@@ -30,12 +30,18 @@ def fmkorea_list():
         titles = soup.select('div > div > div > ul > li.li')
         result_list = []
         for title in titles:
+            name = title.select_one('div > h3 > a')
+            shop = title.select_one('div > div > span:nth-child(1)')
+            price = title.select_one('div > div > span:nth-child(2)')
+            deliver = title.select_one('div > div > span:nth-child(3)')
+            url = name.get('href')
             result_dict = \
                 {
-                    'name': title.select_one('div > h3 > a').get_text().strip(),
-                    'shop': title.select_one('div > div > span:nth-child(1)').get_text().strip(),
-                    'price': title.select_one('div > div > span:nth-child(2)').get_text().strip(),
-                    'deliver': title.select_one('div > div > span:nth-child(3)').get_text().strip()
+                    'name': name.get_text().strip(),
+                    'shop': shop.get_text().strip(),
+                    'price': price.get_text().strip(),
+                    'deliver': deliver.get_text().strip(),
+                    'url': f"https://www.fmkorea.com/{url}"
                 }
             result_list.append(result_dict)
 
