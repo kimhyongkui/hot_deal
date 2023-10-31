@@ -6,12 +6,15 @@ class Fmkorea(models.Model):
     shop = models.CharField(max_length=45)
     price = models.CharField(max_length=45)
     deliver = models.CharField(max_length=45)
+    url = models.CharField(max_length=255)
 
 
 class Ppomppu(models.Model):
-    name = models.CharField(max_length=255)
     category = models.CharField(max_length=45)
-
+    name = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
 
 class Ruliweb(models.Model):
-    name = models.CharField(max_length=45)
+    category = models.CharField(max_length=45)
+    name = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
