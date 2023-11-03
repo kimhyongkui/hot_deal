@@ -1,0 +1,32 @@
+<!-- Fmkorea_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fmkorea List</title>
+</head>
+<body>
+
+<h1>Fmkorea List</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Shop</th>
+        <th>Price</th>
+        <th>Delivery</th>
+        <th>URL</th>
+    </tr>
+    {% for task in tasks %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.shop }}</td>
+            <td>{{ task.price }}</td>
+            <td>{{ task.deliver }}</td>
+            <td>{{ task.url }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
