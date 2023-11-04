@@ -1,14 +1,12 @@
-from crawler.crawling.fmkorea import fmkorea_list
-from crawler.crawling.ppomppu import ppomppu_list
-from crawler.crawling.ruliweb import ruliweb_list
+from crawler.db.post.crawling_data import save_data_fmkorea, save_data_ppomppu, save_data_ruliweb
 import schedule
 import time
 
 
 def update_data():
-    schedule.every(6).hours.do(lambda: fmkorea_list())
-    schedule.every(6).hours.do(lambda: ppomppu_list())
-    schedule.every(6).hours.do(lambda: ruliweb_list())
+    schedule.every(6).hours.do(lambda: save_data_fmkorea())
+    schedule.every(6).hours.do(lambda: save_data_ppomppu())
+    schedule.every(6).hours.do(lambda: save_data_ruliweb())
 
     while True:
         schedule.run_pending()
