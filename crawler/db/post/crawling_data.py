@@ -45,3 +45,4 @@ def save_data_ruliweb():
             url=data['url']
         )
         ruliweb_obj.save()
+
