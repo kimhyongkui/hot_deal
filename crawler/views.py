@@ -12,9 +12,9 @@ from crawler.models import Fmkorea
 
 def fmkorea_list(request):
     tasks = Fmkorea.objects.all()
-    return render(request, 'Fmkorea_list.html', {'tasks': tasks})
+    return render(request, 'fmkorea_list.html', {'tasks': tasks})
 
 
 def fmkorea_detail(request, pk):
     task = Fmkorea.objects.get(id=pk)
-    return render(request, 'Fmkorea_detail.html', {'task': task})
+    return render(request, 'fmkorea_detail.html', {'task': task})
