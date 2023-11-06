@@ -23,7 +23,7 @@
             <td>{{ task.shop }}</td>
             <td>{{ task.price }}</td>
             <td>{{ task.deliver }}</td>
-            <td>{{ task.url }}</td>
+            <td><a href="{{ task.url }}">{{ task.url }}</a></td>
         </tr>
     {% endfor %}
 </table>
