@@ -1,0 +1,29 @@
+<!-- Ppomppu_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ruliweb List</title>
+</head>
+<body>
+
+<h1>Ruliweb List</h1>
+
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Name</th>
+        <th>URL</th>
+    </tr>
+    {% for task in tasks %}
+        <tr>
+            <td>{{ task.category }}</td>
+            <td>{{ task.name }}</td>
+            <td><a href="{{ task.url }}">{{ task.url }}</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+
