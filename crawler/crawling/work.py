@@ -1,4 +1,4 @@
-from crawler.db.post.crawling_data import save_data_fmkorea, save_data_ppomppu, save_data_ruliweb
+from db.post.crawling_data import save_data_fmkorea, save_data_ppomppu, save_data_ruliweb
 import schedule
 import time
 
