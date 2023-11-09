@@ -13,7 +13,7 @@ def fmkorea():
             shop = title.select_one('div > div > span:nth-child(1)')
             price = title.select_one('div > div > span:nth-child(2)')
             deliver = title.select_one('div > div > span:nth-child(3)')
-            time = title.select_one('div > div:nth-child(4) > span.regdate')
+            time = title.select_one('div > div > span.regdate')
             url = name.get('href')
             print(name.get_text().strip())
             print(shop.get_text().strip())
