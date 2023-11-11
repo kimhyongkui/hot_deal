@@ -12,9 +12,11 @@ def ruliweb():
             category = title.select_one('td.divsn.text_over > a[tabindex="-1"]')
             name = title.select_one('td.subject > div > a.deco')
             url = title.select_one('td.subject > div > a.deco').get('href')
+            time = title.select_one('td.time')
             print(category.text.strip())
             print(name.text.strip())
             print(url)
+            print(time.text.strip())
             print('------------------------------')
 
 
