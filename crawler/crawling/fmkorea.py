@@ -22,7 +22,7 @@ def fmkorea():
             print(time.get_text().strip())
             print(f"https://www.fmkorea.com/{url}")
             print('---------------------------')
-fmkorea()
+
 
 def fmkorea_list():
     web_url = requests.get('https://www.fmkorea.com/hotdeal')
