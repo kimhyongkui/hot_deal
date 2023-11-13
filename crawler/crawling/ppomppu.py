@@ -2,23 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 
 
-# def ppomppu():
-#     web_url = requests.get('https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu')
-#     if web_url.status_code == 200:
-#         html = web_url.text
-#         soup = BeautifulSoup(html, 'html.parser')
-#         titles = soup.select('tr td:nth-child(2) > div')
-#         dates = soup.select('td:nth-child(4) > nobr')
-#         for title in titles[3:42]:
-#             name = title.select_one('a > font.list_title')
-#             category = title.select_one('span[style="color:#999;font-size:11px;"]')
-#             url = title.select_one('a').get('href')
-#             if name is not None:
-#                 print(dates)
-#                 print(name.get_text().strip())
-#                 print(f"https://www.ppomppu.co.kr/zboard/{url}")
-#                 print(category.get_text().strip())
-#                 print('------------------------------')
 def ppomppu():
     web_url = requests.get('https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu')
     if web_url.status_code == 200:
@@ -26,7 +9,7 @@ def ppomppu():
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('tr td:nth-child(2) > div')
         dates = soup.select('td:nth-child(4) > nobr')
-        for i, (title, date) in enumerate(zip(titles[3:42], dates[1:35])):
+        for title, date in zip(titles[3:42:2], dates[1:22:1]):
             name = title.select_one('a > font.list_title')
             category = title.select_one('span[style="color:#999;font-size:11px;"]')
             url = title.select_one('a').get('href')
@@ -37,14 +20,6 @@ def ppomppu():
                 print(f"https://www.ppomppu.co.kr/zboard/{url}")
                 print(category.get_text().strip())
                 print('------------------------------')
-
-ppomppu()
-#revolution_main_table > tbody > tr:nth-child(9) > td:nth-child(3) > table > tbody > tr > td:nth-child(2) > div > a > font
-#revolution_main_table > tbody > tr:nth-child(9) > td:nth-child(4) > nobr
-#revolution_main_table > tbody > tr:nth-child(11) > td:nth-child(3) > table > tbody > tr > td:nth-child(2) > div > a > font
-#revolution_main_table > tbody > tr:nth-child(11) > td:nth-child(4) > nobr
-#revolution_main_table > tbody > tr:nth-child(13) > td:nth-child(3) > table > tbody > tr > td:nth-child(2) > div > a > font
-#revolution_main_table > tbody > tr:nth-child(13) > td:nth-child(4) > nobr
 
 
 def ppomppu_list():
