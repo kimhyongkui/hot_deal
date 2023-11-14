@@ -7,15 +7,16 @@ class Fmkorea(models.Model):
     price = models.CharField(max_length=45)
     deliver = models.CharField(max_length=45)
     url = models.CharField(max_length=255)
-
+    date
 
 class Ppomppu(models.Model):
     category = models.CharField(max_length=45)
     name = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
-
+    date
 
 class Ruliweb(models.Model):
     category = models.CharField(max_length=45)
     name = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
+    date
