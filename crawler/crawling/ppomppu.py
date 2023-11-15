@@ -13,12 +13,12 @@ def ppomppu():
             name = title.select_one('a > font.list_title')
             category = title.select_one('span[style="color:#999;font-size:11px;"]')
             url = title.select_one('a').get('href')
-            date_text = date.get_text().strip()
+            date_text = date.text.strip()
             if name is not None:
+                print(name.text.strip())
+                print(category.text.strip())
                 print(date_text)
-                print(name.get_text().strip())
                 print(f"https://www.ppomppu.co.kr/zboard/{url}")
-                print(category.get_text().strip())
                 print('------------------------------')
 
 
@@ -28,17 +28,20 @@ def ppomppu_list():
         html = web_url.text
         soup = BeautifulSoup(html, 'html.parser')
         titles = soup.select('tr td:nth-child(2) > div')
+        dates = soup.select('td:nth-child(4) > nobr')
         result_list = []
-        for title in titles[3:42]:
+        for title, date in zip(titles[3:42:2], dates[1:22:1]):
             category = title.select_one('span[style="color:#999;font-size:11px;"]')
             name = title.select_one('a > font.list_title')
+            date_text = date.text.strip()
             url = title.select_one('a').get('href')
             if name is not None:
                 result_dict = \
                     {
-                        'category': category.get_text().strip(),
-                        'name': name.get_text().strip(),
-                        'url': url
+                        'category': category.text.strip(),
+                        'name': name.text.strip(),
+                        'date': date_text,
+                        'url': f"https://www.ppomppu.co.kr/zboard/{url}"
                     }
                 result_list.append(result_dict)
 

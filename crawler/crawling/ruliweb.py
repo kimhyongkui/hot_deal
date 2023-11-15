@@ -11,12 +11,12 @@ def ruliweb():
         for title in titles[4:32]:
             category = title.select_one('td.divsn.text_over > a[tabindex="-1"]')
             name = title.select_one('td.subject > div > a.deco')
+            date = title.select_one('td.time')
             url = title.select_one('td.subject > div > a.deco').get('href')
-            time = title.select_one('td.time')
             print(category.text.strip())
             print(name.text.strip())
+            print(date.text.strip())
             print(url)
-            print(time.text.strip())
             print('------------------------------')
 
 
@@ -30,11 +30,13 @@ def ruliweb_list():
         for title in titles[4:32]:
             category = title.select_one('td.divsn.text_over > a[tabindex="-1"]')
             name = title.select_one('td.subject > div > a.deco')
+            date = title.select_one('td.time')
             url = title.select_one('td.subject > div > a.deco').get('href')
             result_dict = \
                 {
                     'category': category.text.strip(),
                     'name': name.text.strip(),
+                    'date': date.text.strip(),
                     'url': url
                 }
             result_list.append(result_dict)

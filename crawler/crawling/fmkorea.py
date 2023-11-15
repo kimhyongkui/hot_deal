@@ -13,13 +13,13 @@ def fmkorea():
             shop = title.select_one('div > div > span:nth-child(1)')
             price = title.select_one('div > div > span:nth-child(2)')
             deliver = title.select_one('div > div > span:nth-child(3)')
-            time = title.select_one('div > div > span.regdate')
+            date = title.select_one('div > div > span.regdate')
             url = name.get('href')
-            print(name.get_text().strip())
-            print(shop.get_text().strip())
-            print(price.get_text().strip())
-            print(deliver.get_text().strip())
-            print(time.get_text().strip())
+            print(name.text.strip())
+            print(shop.text.strip())
+            print(price.text.strip())
+            print(deliver.text.strip())
+            print(date.text.strip())
             print(f"https://www.fmkorea.com/{url}")
             print('---------------------------')
 
@@ -36,13 +36,15 @@ def fmkorea_list():
             shop = title.select_one('div > div > span:nth-child(1)')
             price = title.select_one('div > div > span:nth-child(2)')
             deliver = title.select_one('div > div > span:nth-child(3)')
+            date = title.select_one('div > div > span.regdate')
             url = name.get('href')
             result_dict = \
                 {
-                    'name': name.get_text().strip(),
-                    'shop': shop.get_text().strip(),
-                    'price': price.get_text().strip(),
-                    'deliver': deliver.get_text().strip(),
+                    'name': name.text.strip(),
+                    'shop': shop.text.strip(),
+                    'price': price.text.strip(),
+                    'deliver': deliver.text.strip(),
+                    'date': date.text.strip(),
                     'url': f"https://www.fmkorea.com/{url}"
                 }
             result_list.append(result_dict)
