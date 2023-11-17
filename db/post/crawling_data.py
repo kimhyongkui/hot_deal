@@ -15,6 +15,10 @@ from crawler.crawling.ruliweb import ruliweb_list
 def save_data_fmkorea():
     data_list = fmkorea_list()
     for data in data_list:
+        check_data = Fmkorea.objects.filter(name=data['name']).first()
+        if check_data:
+            continue
+
         fmkorea_obj = Fmkorea(
             name=data['name'],
             shop=data['shop'],
@@ -29,6 +33,10 @@ def save_data_fmkorea():
 def save_data_ppomppu():
     data_list = ppomppu_list()
     for data in data_list:
+        check_data = Ppomppu.objects.filter(name=data['name']).first()
+        if check_data:
+            continue
+
         ppomppu_obj = Ppomppu(
             category=data['category'],
             name=data['name'],
@@ -41,6 +49,9 @@ def save_data_ppomppu():
 def save_data_ruliweb():
     data_list = ruliweb_list()
     for data in data_list:
+        check_data = Ruliweb.objects.filter(name=data['name']).first()
+        if check_data:
+            continue
         ruliweb_obj = Ruliweb(
             category=data['category'],
             name=data['name'],
@@ -48,7 +59,3 @@ def save_data_ruliweb():
             url=data['url']
         )
         ruliweb_obj.save()
-
-save_data_ruliweb()
-save_data_ppomppu()
-save_data_fmkorea()
