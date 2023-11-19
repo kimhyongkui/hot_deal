@@ -13,10 +13,12 @@ def ruliweb():
             name = title.select_one('td.subject > div > a.deco')
             date = title.select_one('td.time')
             url = title.select_one('td.subject > div > a.deco').get('href')
+            number = title.select_one('td.id')
             print(category.text.strip())
             print(name.text.strip())
             print(date.text.strip())
             print(url)
+            print(number.text.strip())
             print('------------------------------')
 
 
@@ -32,12 +34,14 @@ def ruliweb_list():
             name = title.select_one('td.subject > div > a.deco')
             date = title.select_one('td.time')
             url = title.select_one('td.subject > div > a.deco').get('href')
+            number = title.select_one('td.id')
             result_dict = \
                 {
                     'category': category.text.strip(),
                     'name': name.text.strip(),
                     'date': date.text.strip(),
-                    'url': url
+                    'url': url,
+                    'number': number.text.strip()
                 }
             result_list.append(result_dict)
 
