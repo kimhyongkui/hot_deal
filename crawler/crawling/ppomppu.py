@@ -51,4 +51,6 @@ def ppomppu_list():
                     }
                 result_list.append(result_dict)
 
+        result_list = sorted(result_list, key=lambda x: x['number'], reverse=True)
+
         return result_list
