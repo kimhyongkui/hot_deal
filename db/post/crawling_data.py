@@ -41,7 +41,8 @@ def save_data_ppomppu():
             category=data['category'],
             name=data['name'],
             date=data['date'],
-            url=data['url']
+            url=data['url'],
+            number=data['number']
         )
         ppomppu_obj.save()
 
@@ -56,6 +57,7 @@ def save_data_ruliweb():
             category=data['category'],
             name=data['name'],
             date=data['date'],
-            url=data['url']
+            url=data['url'],
+            number=data['number']
         )
         ruliweb_obj.save()
