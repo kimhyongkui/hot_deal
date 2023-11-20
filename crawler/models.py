@@ -15,6 +15,7 @@ class Ppomppu(models.Model):
     name = models.CharField(max_length=255, unique=True)
     date = models.CharField(max_length=45)
     url = models.CharField(max_length=255)
+    number = models.CharField(max_length=30)
 
 
 class Ruliweb(models.Model):
@@ -22,3 +23,4 @@ class Ruliweb(models.Model):
     name = models.CharField(max_length=255, unique=True)
     date = models.CharField(max_length=45)
     url = models.CharField(max_length=255)
+    number = models.CharField(max_length=30)
