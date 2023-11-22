@@ -2,7 +2,7 @@ from pathlib import Path
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 secret_file = os.path.join(BASE_DIR, 'secrets.json')
 
@@ -20,9 +20,9 @@ def get_secret(setting):
 
 SECRET_KEY = get_secret("SECRET_KEY")
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG = True
+#
+# ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,7 +46,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'hot_deal.urls'
 
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'crawler.templates')
 
 TEMPLATES = [
     {
