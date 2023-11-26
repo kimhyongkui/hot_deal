@@ -1,6 +1,6 @@
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hot_deal.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hot_deal.settings.development")
 
 import django
 
