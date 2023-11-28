@@ -4,9 +4,9 @@ import time
 
 
 def update_data():
-    schedule.every(6).hours.do(lambda: save_data_fmkorea())
-    schedule.every(6).hours.do(lambda: save_data_ppomppu())
-    schedule.every(6).hours.do(lambda: save_data_ruliweb())
+    schedule.every(1).minute.do(lambda: save_data_fmkorea())
+    schedule.every(1).minute.do(lambda: save_data_ppomppu())
+    schedule.every(1).minute.do(lambda: save_data_ruliweb())
 
     while True:
         schedule.run_pending()
