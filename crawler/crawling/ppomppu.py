@@ -43,11 +43,11 @@ def ppomppu_list():
             if name is not None:
                 result_dict = \
                     {
+                        'number': number_text,
                         'category': category.text.strip(),
                         'name': name.text.strip(),
                         'date': date_text,
-                        'url': f"https://www.ppomppu.co.kr/zboard/{url}",
-                        'number': number_text
+                        'url': f"https://www.ppomppu.co.kr/zboard/{url}"
                     }
                 result_list.append(result_dict)
 

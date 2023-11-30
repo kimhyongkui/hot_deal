@@ -37,11 +37,11 @@ def ruliweb_list():
             number = title.select_one('td.id')
             result_dict = \
                 {
+                    'number': number.text.strip(),
                     'category': category.text.strip(),
                     'name': name.text.strip(),
                     'date': date.text.strip(),
-                    'url': url,
-                    'number': number.text.strip()
+                    'url': url
                 }
             result_list.append(result_dict)
 

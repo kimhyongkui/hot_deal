@@ -11,19 +11,19 @@
 
 <table>
     <tr>
+        <th>Number</th>
         <th>Category</th>
         <th>Name</th>
         <th>Date</th>
         <th>URL</th>
-        <th>Number</th>
     </tr>
     {% for task in tasks %}
         <tr>
+            <td>{{ task.number }}</td>
             <td>{{ task.category }}</td>
             <td>{{ task.name }}</td>
             <td>{{ task.date }}</td>
             <td><a href="{{ task.url }}">{{ task.url }}</a></td>
-            <td>{{ task.number }}</td>
         </tr>
     {% endfor %}
 </table>
