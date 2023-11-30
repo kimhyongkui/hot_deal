@@ -11,16 +11,16 @@ class Fmkorea(models.Model):
 
 
 class Ppomppu(models.Model):
+    number = models.CharField(max_length=30, primary_key=True)
     category = models.CharField(max_length=45)
     name = models.CharField(max_length=255, unique=True)
     date = models.CharField(max_length=45)
     url = models.CharField(max_length=255)
-    number = models.CharField(max_length=30, unique=True)
 
 
 class Ruliweb(models.Model):
+    number = models.CharField(max_length=30, primary_key=True)
     category = models.CharField(max_length=45)
     name = models.CharField(max_length=255, unique=True)
     date = models.CharField(max_length=45)
     url = models.CharField(max_length=255)
-    number = models.CharField(max_length=30, unique=True)
