@@ -38,16 +38,16 @@ def save_data_ppomppu():
     data_list = ppomppu_list()
     new_posts_count = 0
     for data in data_list:
-        check_data = Ppomppu.objects.filter(name=data['name']).first()
+        check_data = Ppomppu.objects.filter(number=data['number']).first()
         if check_data:
             continue
 
         ppomppu_obj = Ppomppu(
+            number=data['number'],
             category=data['category'],
             name=data['name'],
             date=data['date'],
-            url=data['url'],
-            number=data['number']
+            url=data['url']
         )
         ppomppu_obj.save()
         new_posts_count += 1
@@ -59,15 +59,15 @@ def save_data_ruliweb():
     data_list = ruliweb_list()
     new_posts_count = 0
     for data in data_list:
-        check_data = Ruliweb.objects.filter(name=data['name']).first()
+        check_data = Ruliweb.objects.filter(number=data['number']).first()
         if check_data:
             continue
         ruliweb_obj = Ruliweb(
+            number=data['number'],
             category=data['category'],
             name=data['name'],
             date=data['date'],
-            url=data['url'],
-            number=data['number']
+            url=data['url']
         )
         ruliweb_obj.save()
         new_posts_count += 1
