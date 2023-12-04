@@ -10,8 +10,7 @@ from crawler.models import Fmkorea, Ppomppu, Ruliweb
 from crawler.crawling.fmkorea import fmkorea_list
 from crawler.crawling.ppomppu import ppomppu_list
 from crawler.crawling.ruliweb import ruliweb_list
-from crawler.notification.test import send_discord_notification
-
+from crawler.notification.discord_noti import send_discord_notification
 
 
 def save_data_fmkorea():
@@ -34,6 +33,8 @@ def save_data_fmkorea():
         new_posts_count += 1
     if new_posts_count >= 0:
         print(f"{new_posts_count}개 업데이트")
+        message = f"{new_posts_count}개 업데이트"
+        send_discord_notification(message)
 
 
 def save_data_ppomppu():
@@ -55,6 +56,8 @@ def save_data_ppomppu():
         new_posts_count += 1
     if new_posts_count >= 0:
         print(f"{new_posts_count}개 업데이트")
+        message = f"{new_posts_count}개 업데이트"
+        send_discord_notification(message)
 
 
 def save_data_ruliweb():
