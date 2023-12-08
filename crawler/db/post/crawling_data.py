@@ -33,7 +33,7 @@ def save_data_fmkorea():
         new_posts_count += 1
     if new_posts_count >= 0:
         print(f"{new_posts_count}개 업데이트")
-        message = f"{new_posts_count}개 업데이트"
+        message = f"fmkorea : {new_posts_count}개 업데이트"
         send_discord_notification(message)
 
 
@@ -56,7 +56,7 @@ def save_data_ppomppu():
         new_posts_count += 1
     if new_posts_count >= 0:
         print(f"{new_posts_count}개 업데이트")
-        message = f"{new_posts_count}개 업데이트"
+        message = f"ppomppu : {new_posts_count}개 업데이트"
         send_discord_notification(message)
 
 
@@ -78,5 +78,5 @@ def save_data_ruliweb():
         new_posts_count += 1
     if new_posts_count >= 0:
         print(f"{new_posts_count}개 업데이트")
-        message = f"{new_posts_count}개 업데이트"
+        message = f"ruliweb : {new_posts_count}개 업데이트"
         send_discord_notification(message)
