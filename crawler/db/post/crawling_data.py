@@ -17,7 +17,7 @@ def save_data_fmkorea():
     data_list = fmkorea_list()
     new_posts_count = 0
     for data in data_list:
-        check_data = Fmkorea.objects.filter(name=data['name']).first()
+        check_data = Fmkorea.objects.filter(url=data['url']).first()
         if check_data:
             continue
 
