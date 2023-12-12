@@ -11,26 +11,32 @@ from crawler.crawling.fmkorea import fmkorea_list
 from crawler.crawling.ppomppu import ppomppu_list
 from crawler.crawling.ruliweb import ruliweb_list
 from crawler.notification.discord_noti import send_discord_notification
+from django.db import IntegrityError
 
 
 def save_data_fmkorea():
     data_list = fmkorea_list()
     new_posts_count = 0
     for data in data_list:
-        check_data = Fmkorea.objects.filter(url=data['url']).first()
-        if check_data:
-            continue
+        try:
+            check_data = Fmkorea.objects.filter(url=data['url']).first()
+            if check_data:
+                continue
 
-        fmkorea_obj = Fmkorea(
-            name=data['name'],
-            shop=data['shop'],
-            price=data['price'],
-            deliver=data['deliver'],
-            date=data['date'],
-            url=data['url']
-        )
-        fmkorea_obj.save()
-        new_posts_count += 1
+            fmkorea_obj = Fmkorea(
+                name=data['name'],
+                shop=data['shop'],
+                price=data['price'],
+                deliver=data['deliver'],
+                date=data['date'],
+                url=data['url']
+            )
+            fmkorea_obj.save()
+            new_posts_count += 1
+
+        except IntegrityError as err:
+            pass
+
     if new_posts_count >= 0:
         print(f"{new_posts_count}개 업데이트")
         message = f"fmkorea : {new_posts_count}개 업데이트"
