@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED=1
 ENV ENVIRONMENT="dev"
 ENV USER="admin"
 ENV DB_HOST="bud-db-1.c6kvxbytk32d.ap-northeast-2.rds.amazonaws.com"
-ENV HOST="43.200.7.136"
+ENV HOST="52.78.44.118"
 
 # 작업 디렉토리 생성 및 설정
 RUN mkdir /app
@@ -14,6 +14,10 @@ WORKDIR /app
 
 # requirements 파일 복사
 COPY requirements.txt /app/
+
+
+RUN apt-get update && \
+    apt-get install default-libmysqlclient-dev pkg-config -y
 
 # requirements 설치
 RUN pip install -r requirements.txt
