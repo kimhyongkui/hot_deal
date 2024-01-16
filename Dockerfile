@@ -17,7 +17,7 @@ COPY requirements.txt /app/
 
 
 RUN apt-get update && \
-    apt-get install default-libmysqlclient-dev pkg-config -y
+    apt-get install -y default-libmysqlclient-dev pkg-config gcc
 
 # requirements 설치
 RUN pip install -r requirements.txt
