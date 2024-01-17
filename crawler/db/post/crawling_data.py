@@ -66,6 +66,28 @@ def save_data_ppomppu():
         send_discord_notification(message)
 
 
+# def save_data_ruliweb():
+#     data_list = ruliweb_list()
+#     new_posts_count = 0
+#     for data in data_list:
+#         check_data = Ruliweb.objects.filter(number=data['number']).first()
+#         if check_data:
+#             continue
+#         ruliweb_obj = Ruliweb(
+#             number=data['number'],
+#             category=data['category'],
+#             name=data['name'],
+#             date=data['date'],
+#             url=data['url']
+#         )
+#         ruliweb_obj.save()
+#         new_posts_count += 1
+#     if new_posts_count >= 0:
+#         print(f"{new_posts_count}개 업데이트")
+#         message = f"ruliweb : {new_posts_count}개 업데이트"
+#         send_discord_notification(message)
+
+
 def save_data_ruliweb():
     data_list = ruliweb_list()
     new_posts_count = 0
