@@ -16,7 +16,7 @@ from django.db import IntegrityError
 
 def save_data_fmkorea():
     data_list = fmkorea_list()
-    new_posts_count = 0
+    new_post_count = 0
     for data in data_list:
         try:
             check_data = Fmkorea.objects.filter(url=data['url']).first()
@@ -32,20 +32,20 @@ def save_data_fmkorea():
                 url=data['url']
             )
             fmkorea_obj.save()
-            new_posts_count += 1
+            new_post_count += 1
 
         except IntegrityError as err:
             pass
 
-    if new_posts_count >= 0:
-        print(f"{new_posts_count}개 업데이트")
-        message = f"fmkorea : {new_posts_count}개 업데이트"
+    if new_post_count >= 0:
+        print(f"{new_post_count}개 업데이트")
+        message = f"fmkorea : {new_post_count}개 업데이트"
         send_discord_notification(message)
 
 
 def save_data_ppomppu():
     data_list = ppomppu_list()
-    new_posts_count = 0
+    new_post_count = 0
     for data in data_list:
         check_data = Ppomppu.objects.filter(number=data['number']).first()
         if check_data:
@@ -59,16 +59,16 @@ def save_data_ppomppu():
             url=data['url']
         )
         ppomppu_obj.save()
-        new_posts_count += 1
-    if new_posts_count >= 0:
-        print(f"{new_posts_count}개 업데이트")
-        message = f"ppomppu : {new_posts_count}개 업데이트"
+        new_post_count += 1
+    if new_post_count >= 0:
+        print(f"{new_post_count}개 업데이트")
+        message = f"ppomppu : {new_post_count}개 업데이트"
         send_discord_notification(message)
 
 
 # def save_data_ruliweb():
 #     data_list = ruliweb_list()
-#     new_posts_count = 0
+#     new_post_count = 0
 #     for data in data_list:
 #         check_data = Ruliweb.objects.filter(number=data['number']).first()
 #         if check_data:
@@ -81,16 +81,16 @@ def save_data_ppomppu():
 #             url=data['url']
 #         )
 #         ruliweb_obj.save()
-#         new_posts_count += 1
-#     if new_posts_count >= 0:
-#         print(f"{new_posts_count}개 업데이트")
-#         message = f"ruliweb : {new_posts_count}개 업데이트"
+#         new_post_count += 1
+#     if new_post_count >= 0:
+#         print(f"{new_post_count}개 업데이트")
+#         message = f"ruliweb : {new_post_count}개 업데이트"
 #         send_discord_notification(message)
 
 
 def save_data_ruliweb():
     data_list = ruliweb_list()
-    new_posts_count = 0
+    new_post = 0
     for data in data_list:
         check_data = Ruliweb.objects.filter(number=data['number']).first()
         if check_data:
@@ -103,8 +103,8 @@ def save_data_ruliweb():
             url=data['url']
         )
         ruliweb_obj.save()
-        new_posts_count += 1
-    if new_posts_count >= 0:
-        print(f"{new_posts_count}개 업데이트")
-        message = f"ruliweb : {new_posts_count}개 업데이트"
+        new_post += 1
+    if new_post >= 0:
+        print(f"{new_post}개 업데이트")
+        message = f"ruliweb : {new_post}개 업데이트"
         send_discord_notification(message)

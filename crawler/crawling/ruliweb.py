@@ -92,10 +92,10 @@ def count_list(ruliweb_list):
             date=data['date'],
             url=data['url']
         )
-
-        result = ruliweb_obj
+        ruliweb_obj.save()
+        # result = ruliweb_obj
         new_post_count += 1
     if new_post_count >= 0:
-        print(f"{new_posts_count}개 업데이트")
-        message = f"ruliweb : {new_posts_count}개 업데이트"
+        print(f"{new_post_count}개 업데이트")
+        message = f"ruliweb : {new_post_count}개 업데이트"
         send_discord_notification(message)
