@@ -75,22 +75,27 @@ def ruliweb_list():
             result_list.append(result_dict)
 
         result_list = sorted(result_list, key=lambda x: x['number'])
-        new_post_count = 0
-        for data in result_list:
-            check_data = Ruliweb.objects.filter(url=data['url']).first()
-            if check_data:
-                continue
-            ruliweb_obj = Ruliweb(
-                number=data['number'],
-                category=data['category'],
-                name=data['name'],
-                date=data['date'],
-                url=data['url']
-            )
+    return result_list
 
-            result = ruliweb_obj
-            new_post_count += 1
-        if new_post_count >= 0:
-            print(f"{new_posts_count}개 업데이트")
-            message = f"ruliweb : {new_posts_count}개 업데이트"
-            send_discord_notification(message)
+
+def count_list(ruliweb_list):
+    data_list = ruliweb_list()
+    new_post_count = 0
+    for data in data_list:
+        check_data = Ruliweb.objects.filter(url=data['url']).first()
+        if check_data:
+            continue
+        ruliweb_obj = Ruliweb(
+            number=data['number'],
+            category=data['category'],
+            name=data['name'],
+            date=data['date'],
+            url=data['url']
+        )
+
+        result = ruliweb_obj
+        new_post_count += 1
+    if new_post_count >= 0:
+        print(f"{new_posts_count}개 업데이트")
+        message = f"ruliweb : {new_posts_count}개 업데이트"
+        send_discord_notification(message)
