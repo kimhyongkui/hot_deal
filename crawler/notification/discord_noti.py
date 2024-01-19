@@ -6,7 +6,7 @@ import asyncio
 load_dotenv()
 
 
-def send_discord_notification(message):
+def send_discord_notification(messages):
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
@@ -16,7 +16,8 @@ def send_discord_notification(message):
     @client.event
     async def on_ready():
         channel = client.get_channel(channel_id)
-        await channel.send(message)
+        for message in messages:
+            await channel.send(message)
         await client.close()
 
     loop = asyncio.get_event_loop()
