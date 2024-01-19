@@ -1,9 +1,4 @@
 from django.db import models
-import os
-import django
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hot_deal.settings.development")
-django.setup()
 
 
 class Fmkorea(models.Model):
