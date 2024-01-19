@@ -1,8 +1,16 @@
+import os
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hot_deal.settings.development")
+
+import django
+
+django.setup()
+
 from bs4 import BeautifulSoup
 import requests
 from crawler.models import Ruliweb
 from crawler.notification.discord_noti import send_discord_notification
-
+from crawler.db.post.crawling_data import save_data_ruliweb
 
 def ruliweb():
     web_url = requests.get('https://bbs.ruliweb.com/market/board/1020')
@@ -80,22 +88,9 @@ def ruliweb_list():
 
 def count_list(ruliweb_list):
     data_list = ruliweb_list()
-    new_post_count = 0
+    new_list = []
     for data in data_list:
         check_data = Ruliweb.objects.filter(url=data['url']).first()
-        if check_data:
-            continue
-        ruliweb_obj = Ruliweb(
-            number=data['number'],
-            category=data['category'],
-            name=data['name'],
-            date=data['date'],
-            url=data['url']
-        )
-        ruliweb_obj.save()
-        # result = ruliweb_obj
-        new_post_count += 1
-    if new_post_count >= 0:
-        print(f"{new_post_count}개 업데이트")
-        message = f"ruliweb : {new_post_count}개 업데이트"
-        send_discord_notification(message)
+        if not check_data:
+            new_list.append(data)
+    return new_list
