@@ -6,10 +6,8 @@ import django
 
 django.setup()
 
-from crawler.models import Fmkorea, Ppomppu, Ruliweb
+from crawler.models import Fmkorea
 from crawler.crawling.fmkorea import fmkorea_list
-from crawler.crawling.ppomppu import ppomppu_list
-# from crawler.crawling.ruliweb import ruliweb_list
 from crawler.notification.discord_noti import send_discord_notification
 from django.db import IntegrityError
 
@@ -41,25 +39,8 @@ def save_data_fmkorea():
         send_discord_notification(message)
 
 
-def save_data_ppomppu():
-    data_list = ppomppu_list()
-    new_post_count = 0
-    for data in data_list:
-        check_data = Ppomppu.objects.filter(number=data['number']).first()
-        if not check_data:
-            ppomppu_obj = Ppomppu(
-                number=data['number'],
-                category=data['category'],
-                name=data['name'],
-                date=data['date'],
-                url=data['url']
-            )
-            ppomppu_obj.save()
-            new_post_count += 1
-    if new_post_count >= 0:
-        print(f"{new_post_count}개 업데이트")
-        message = f"ppomppu : {new_post_count}개 업데이트"
-        send_discord_notification(message)
+def save_data_ppomppu(ppomppu_obj):
+    ppomppu_obj.save()
 
 
 def save_data_ruliweb(ruliweb_obj):
