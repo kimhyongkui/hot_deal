@@ -41,7 +41,7 @@ def ruliweb_list():
     return result_list
 
 
-def count_list():
+def count_ruliweb_list():
     data_list = ruliweb_list()
     new_post_count = 0
     message_list = []

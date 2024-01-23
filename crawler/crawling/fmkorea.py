@@ -43,7 +43,7 @@ def fmkorea_list():
         return result_list
 
 
-def count_list():
+def count_fmkorea_list():
     data_list = fmkorea_list()
     new_post_count = 0
     message_list = []
