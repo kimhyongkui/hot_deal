@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import requests
 from crawler.models import Ppomppu
 from crawler.notification.discord_noti import send_discord_notification
-from crawler.db.post.crawling_data import save_data_ppomppu
+from crawler.db.post.crawling_data import save_data
 
 
 def ppomppu_list():
@@ -58,7 +58,7 @@ def count_ppomppu_list():
                 date=data['date'],
                 url=data['url']
             )
-            save_data_ppomppu(ppomppu_obj)
+            save_data(ppomppu_obj)
             message_list.append(f"{data['name']}")
             new_post_count += 1
     if new_post_count >= 0:

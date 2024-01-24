@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import requests
 from crawler.models import Fmkorea
 from crawler.notification.discord_noti import send_discord_notification
-from crawler.db.post.crawling_data import save_data_fmkorea
+from crawler.db.post.crawling_data import save_data
 
 
 def fmkorea_list():
@@ -58,7 +58,7 @@ def count_fmkorea_list():
                 date=data['date'],
                 url=data['url']
             )
-            save_data_fmkorea(fmkorea_obj)
+            save_data(fmkorea_obj)
             message_list.append(f"{data['name']}")
             new_post_count += 1
     if new_post_count >= 0:
