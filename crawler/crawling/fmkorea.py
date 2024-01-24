@@ -62,5 +62,5 @@ def count_fmkorea_list():
             message_list.append(f"{data['name']}")
             new_post_count += 1
     if new_post_count >= 0:
-        message_list.append(f"ruliweb : {new_post_count}개 업데이트")
+        message_list.append(f"fmkorea : {new_post_count}개 업데이트")
         send_discord_notification(message_list)
