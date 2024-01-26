@@ -41,23 +41,55 @@ def ruliweb_list():
     return result_list
 
 
+# def count_ruliweb_list():
+#     data_list = ruliweb_list()
+#     new_post_count = 0
+#     message_list = []
+#     for data in data_list:
+#         check_data = Ruliweb.objects.filter(url=data['url']).first()
+#         if not check_data:
+#             ruliweb_obj = Ruliweb(
+#                 number=data['number'],
+#                 category=data['category'],
+#                 name=data['name'],
+#                 date=data['date'],
+#                 url=data['url']
+#             )
+#             save_data(ruliweb_obj)
+#             message_list.append(f"{data['name']}")
+#             new_post_count += 1
+#     if new_post_count >= 0:
+#         message_list.append(f"ruliweb : {new_post_count}개 업데이트")
+#         send_discord_notification(message_list)
+
+
+def save_ruliweb_list(data):
+    check_data = Ruliweb.objects.filter(url=data['url']).first()
+    if not check_data:
+        ruliweb_obj = Ruliweb(
+            number=data['number'],
+            category=data['category'],
+            name=data['name'],
+            date=data['date'],
+            url=data['url']
+        )
+        save_data(ruliweb_obj)
+
+
+def count_and_notify(new_post_count, message_list):
+    if new_post_count >= 0:
+        message_list.append(f"ruliweb : {new_post_count}개 업데이트")
+        send_discord_notification(message_list)
+
+
 def count_ruliweb_list():
     data_list = ruliweb_list()
     new_post_count = 0
     message_list = []
+
     for data in data_list:
-        check_data = Ruliweb.objects.filter(url=data['url']).first()
-        if not check_data:
-            ruliweb_obj = Ruliweb(
-                number=data['number'],
-                category=data['category'],
-                name=data['name'],
-                date=data['date'],
-                url=data['url']
-            )
-            save_data(ruliweb_obj)
-            message_list.append(f"{data['name']}")
-            new_post_count += 1
-    if new_post_count >= 0:
-        message_list.append(f"ruliweb : {new_post_count}개 업데이트")
-        send_discord_notification(message_list)
+        save_ruliweb_list(data)
+        message_list.append(f"{data['name']}")
+        new_post_count += 1
+
+    count_and_notify(new_post_count, message_list)
