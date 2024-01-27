@@ -64,7 +64,7 @@ def ruliweb_list():
 
 
 def save_ruliweb_list(data):
-    check_data = Ruliweb.objects.filter(url=data['url']).first()
+    check_data = Ruliweb.objects.filter(url=data['url'])
     if not check_data:
         ruliweb_obj = Ruliweb(
             number=data['number'],
