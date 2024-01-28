@@ -63,8 +63,8 @@ def ruliweb_list():
 #         send_discord_notification(message_list)
 
 
-def save_ruliweb_list(data):
-    check_data = Ruliweb.objects.filter(url=data['url'])
+def save_ruliweb_list(data, message_list, new_post_count):
+    check_data = Ruliweb.objects.filter(url=data['url']).first()
     if not check_data:
         ruliweb_obj = Ruliweb(
             number=data['number'],
@@ -74,6 +74,10 @@ def save_ruliweb_list(data):
             url=data['url']
         )
         save_data(ruliweb_obj)
+        message_list.append(f"{data['name']}")
+        new_post_count += 1
+
+    return new_post_count
 
 
 def count_and_notify(new_post_count, message_list):
@@ -88,8 +92,8 @@ def count_ruliweb_list():
     message_list = []
 
     for data in data_list:
-        save_ruliweb_list(data)
-        message_list.append(f"{data['name']}")
-        new_post_count += 1
+        save_ruliweb_list(data, message_list, new_post_count)
 
     count_and_notify(new_post_count, message_list)
+
+count_ruliweb_list()
