@@ -92,8 +92,6 @@ def count_ruliweb_list():
     message_list = []
 
     for data in data_list:
-        save_ruliweb_list(data, message_list, new_post_count)
+        new_post_count = save_ruliweb_list(data, message_list, new_post_count)
 
     count_and_notify(new_post_count, message_list)
-
-count_ruliweb_list()
