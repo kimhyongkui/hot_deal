@@ -45,7 +45,7 @@ def count_list(site_name):
     for data in data_list:
         check_data = f"{table_name}.objects.filter(url=data['url']).first()"
         if not check_data:
-            save_ruliweb_list(data)
+            f"save_{site_name}_list(data)"
             message_list.append(f"{data['name']}")
             new_post_count += 1
 
