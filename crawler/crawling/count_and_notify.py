@@ -21,8 +21,13 @@ def send_notify(site_name, new_post_count, message_list):
 
 def count_list(site_name):
     data_list = globals()[f"{site_name}_list"]()
+
+    if data_list is None or not data_list:
+        raise ValueError(f"{site_name} 데이터 없음")
+
     new_post_count = 0
     message_list = []
+
     for data in data_list:
         check_data = globals()[site_name.capitalize()].objects.filter(url=data['url']).first()
         if not check_data:
