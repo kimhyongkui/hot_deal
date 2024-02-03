@@ -7,7 +7,9 @@ import django
 django.setup()
 
 from crawler.notification.discord_noti import send_discord_notification
-from crawler.models import Ruliweb
+from crawler.models import Fmkorea, Ppomppu, Ruliweb
+from crawler.crawling.fmkorea import fmkorea_list, save_fmkorea_list
+from crawler.crawling.ppomppu import ppomppu_list, save_ppomppu_list
 from crawler.crawling.ruliweb import ruliweb_list, save_ruliweb_list
 
 
