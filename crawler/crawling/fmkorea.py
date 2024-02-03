@@ -44,7 +44,7 @@ def fmkorea_list():
 
 def save_fmkorea_list(data):
     fmkorea_obj = Fmkorea(
-        name=data['number'],
+        name=data['name'],
         shop=data['shop'],
         price=data['price'],
         deliver=data['deliver'],
