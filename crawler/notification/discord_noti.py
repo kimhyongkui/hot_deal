@@ -16,8 +16,8 @@ def send_discord_notification(messages):
     @client.event
     async def on_ready():
         channel = client.get_channel(channel_id)
-        for message in messages:
-            await channel.send(message)
+        combined_message = '\n'.join(messages)
+        await channel.send(combined_message)
         await client.close()
 
     loop = asyncio.get_event_loop()
