@@ -9,7 +9,6 @@ django.setup()
 from bs4 import BeautifulSoup
 import requests
 from crawler.models import Ppomppu
-from crawler.notification.discord_noti import send_discord_notification
 from crawler.db.post.crawling_data import save_data
 
 
@@ -44,23 +43,12 @@ def ppomppu_list():
         return result_list
 
 
-def count_ppomppu_list():
-    data_list = ppomppu_list()
-    new_post_count = 0
-    message_list = []
-    for data in data_list:
-        check_data = Ppomppu.objects.filter(url=data['url']).first()
-        if not check_data:
-            ppomppu_obj = Ppomppu(
-                number=data['number'],
-                category=data['category'],
-                name=data['name'],
-                date=data['date'],
-                url=data['url']
-            )
-            save_data(ppomppu_obj)
-            message_list.append(f"{data['name']}")
-            new_post_count += 1
-    if new_post_count >= 0:
-        message_list.append(f"ppomppu : {new_post_count}개 업데이트")
-        send_discord_notification(message_list)
+def save_ppomppu_list(data):
+    ppomppu_obj = Ppomppu(
+        number=data['number'],
+        category=data['category'],
+        name=data['name'],
+        date=data['date'],
+        url=data['url']
+    )
+    save_data(ppomppu_obj)

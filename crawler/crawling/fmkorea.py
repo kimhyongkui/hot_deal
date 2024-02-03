@@ -9,7 +9,6 @@ django.setup()
 from bs4 import BeautifulSoup
 import requests
 from crawler.models import Fmkorea
-from crawler.notification.discord_noti import send_discord_notification
 from crawler.db.post.crawling_data import save_data
 
 
@@ -43,24 +42,13 @@ def fmkorea_list():
         return result_list
 
 
-def count_fmkorea_list():
-    data_list = fmkorea_list()
-    new_post_count = 0
-    message_list = []
-    for data in data_list:
-        check_data = Fmkorea.objects.filter(url=data['url']).first()
-        if not check_data:
-            fmkorea_obj = Fmkorea(
-                name=data['number'],
-                shop=data['shop'],
-                price=data['price'],
-                deliver=data['deliver'],
-                date=data['date'],
-                url=data['url']
-            )
-            save_data(fmkorea_obj)
-            message_list.append(f"{data['name']}")
-            new_post_count += 1
-    if new_post_count >= 0:
-        message_list.append(f"fmkorea : {new_post_count}개 업데이트")
-        send_discord_notification(message_list)
+def save_fmkorea_list(data):
+    fmkorea_obj = Fmkorea(
+        name=data['number'],
+        shop=data['shop'],
+        price=data['price'],
+        deliver=data['deliver'],
+        date=data['date'],
+        url=data['url']
+    )
+    save_data(fmkorea_obj)
