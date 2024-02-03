@@ -16,7 +16,7 @@
         <th>Name</th>
         <th>Date</th>
         <th>URL</th>
-        <th>Datetime</th>
+        <th>Timestamp</th>
     </tr>
     {% for task in tasks %}
         <tr>
@@ -25,7 +25,7 @@
             <td>{{ task.name }}</td>
             <td>{{ task.date }}</td>
             <td><a href="{{ task.url }}">{{ task.url }}</a></td>
-            <td>{{ task.datetime }}</td>
+            <td>{{ task.timestamp }}</td>
         </tr>
     {% endfor %}
 </table>
